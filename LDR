@@ -1,0 +1,28 @@
+LDR is a kind of Photoresistor which is light sensitive and most ofently used to detect the presence of light or measures the intesnity of the light.
+
+
+//connect a termininal of LDR with +5V VCC of Arduno and other terminal with 1K resistore to ground. Connect the other terminal of LDR with Analog input pin to read the light intensity values.
+
+int LDR = A0;
+int led = 8;
+int value =0;
+void setup()
+{
+pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+value = analogRead(LDR);
+  if(value<300)
+  {
+  digitalWrite(led, HIGH);
+  }
+  else
+  {
+  digitalWrite(led,LOW);
+     }
+  Serial.println(value);
+  delay(200);
+} 
